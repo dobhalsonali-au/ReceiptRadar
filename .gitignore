@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local data (do NOT commit personal finance)
+data/expenses.csv
+data/budgets.csv
+
+# Generated reports
+reports/*.txt
+
+# VS Code
+.vscode/
