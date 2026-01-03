@@ -2,7 +2,7 @@
 __pycache__/
 *.pyc
 
-# Local data (do NOT commit personal finance)
+# Local data
 data/expenses.csv
 data/budgets.csv
 
