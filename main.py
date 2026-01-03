@@ -31,7 +31,6 @@ def ensure_header():
         with open(FILE_PATH, "x") as f:
             f.write("date,name,type,category,amount\n")
     except FileExistsError:
-        # file exists but old format; we won't auto-migrate in this step
         pass
 
 
@@ -104,7 +103,7 @@ def view_summary():
         if not line:
             continue
 
-        # Skip header if present (but don't require it)
+        # Skip header if already present
         if line.lower() == "date,name,type,category,amount":
             continue
 
@@ -146,7 +145,7 @@ def view_summary():
     for category, amt in category_totals.items():
         print(category, "→ $", round(amt, 2))
 
-    # --- Budget Mode additions ---
+    # --- Budget Mode ---
     budgets = load_budgets()
     if budgets:
         print("\n--- Budgets ---")
@@ -158,9 +157,9 @@ def view_summary():
 
                 status = ""
                 if percent >= 100:
-                    status = "🚨 OVER budget"
+                    status = "OOPS!!! OVER budget"
                 elif percent >= 80:
-                    status = "⚠️ Near budget"
+                    status = "Welll!!! Near budget"
 
                 print(
                     f"{category}: spent ${round(spent, 2)} / ${round(limit, 2)} "
@@ -192,7 +191,7 @@ def view_summary():
             for category, amt in category_totals.items():
                 r.write(f"- {category}: ${round(amt, 2)}\n")
 
-            # Include budgets in report too (nice touch)
+            # Include budgets in report
             if budgets:
                 r.write("\nBudgets:\n")
                 for category, spent in category_totals.items():
@@ -362,7 +361,7 @@ def set_budget():
         for c, l in budgets.items():
             f.write(f"{c},{l}\n")
 
-    print(f"✅ Budget set: {category} = ${limit}\n")
+    print(f"Budget set: {category} = ${limit}\n")
 
 
 def load_budgets():
@@ -390,7 +389,7 @@ def main():
         print("5) Exit")
 
 
-        choice = input("Choose (1/2/3/4): ").strip()
+        choice = input("Choose (1/2/3/4/5): ").strip()
 
         if choice == "1":
             add_expense()
