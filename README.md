@@ -1,9 +1,9 @@
 # ReceiptRadar
 
 At the start of 2026, one of my New Year resolutions was simple:
-**understand where my money actually goes.**
+**keep track of where my money actually goes.**
 
-Between income, day-to-day expenses, and vague “I’ll track it later” promises, budgeting always felt more complicated than it needed to be. I wanted something lightweight, local, and honest — no apps, no logins, no subscriptions.
+Between income, day-to-day expenses, and last minute shopping spree, budgeting always felt more complicated than it needed to be. I wanted something lightweight, local, and honest which means no apps, no logins, no subscriptions.
 
 So I built **ReceiptRadar**.
 
